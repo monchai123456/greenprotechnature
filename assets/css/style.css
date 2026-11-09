@@ -28,6 +28,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 84px;
+  overflow-x: hidden;
 }
 
 body {
@@ -3124,84 +3125,730 @@ a {
   font-weight: 700;
 }
 
-/* Responsive Media Queries */
+/* Responsive Media Queries (Tablet & Smart Phone Optimization) */
 @media (max-width: 1024px) {
   .hero-grid,
   .nano-showcase,
-  .warning-signs-card,
   .process-video-grid,
   .faq-layout,
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 28px;
   }
 
   .policy-grid,
-  .cert-grid,
   .knowledge-grid,
-  .villages-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .warranty-grid,
-  .clients-showcase,
-  .gallery-grid {
+  .estate-hero-showcase,
+  .gallery-grid,
+  .warning-list-4col {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .villages-grid-modern,
+  .gallery-stats-bar,
   .action-strip {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .footer-brand-col {
+    grid-column: 1 / -1;
   }
 
   .nav-links {
     display: none;
     position: absolute;
-    top: 78px;
+    top: 100%;
     left: 0;
     right: 0;
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.99);
+    backdrop-filter: blur(14px);
     flex-direction: column;
-    padding: 16px;
-    border-bottom: 1px solid var(--border);
-    box-shadow: var(--shadow-md);
+    align-items: stretch;
+    padding: 12px 16px 18px;
+    gap: 4px;
+    border-bottom: 2px solid #86efac;
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.14);
   }
 
   .nav-links.open {
     display: flex;
   }
 
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 11px 16px;
+    border-radius: 12px;
+    font-size: 0.98rem;
+  }
+
   .mobile-toggle {
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
-@media (max-width: 640px) {
-  .services-grid,
-  .policy-grid,
-  .cert-grid,
-  .knowledge-grid,
-  .villages-grid,
-  .warranty-grid,
-  .clients-showcase,
-  .gallery-grid,
-  .hero-features,
-  .warning-list,
-  .footer-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 680px) {
+  html {
+    scroll-padding-top: 70px;
   }
 
-  .action-strip {
-    grid-template-columns: repeat(2, 1fr);
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .section-header {
+    margin-bottom: 28px;
+  }
+
+  .section-tag {
+    font-size: 0.76rem;
+    padding: 4px 12px;
+  }
+
+  .section-title {
+    font-size: 1.48rem;
+    line-height: 1.35;
+  }
+
+  .section-desc {
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  /* Compact Topbar on Smartphone */
+  .topbar {
+    padding: 6px 0;
+    font-size: 0.78rem;
+  }
+
+  .topbar-badges {
+    display: none;
   }
 
   .topbar-inner {
     justify-content: center;
+  }
+
+  .topbar-contacts {
+    justify-content: center;
+    gap: 6px 10px;
+    font-size: 0.77rem;
+  }
+
+  /* Compact Sticky Navbar on Smartphone */
+  .nav-inner {
+    height: 64px;
+    gap: 10px;
+  }
+
+  .brand img {
+    height: 38px;
+  }
+
+  .btn-nav {
+    padding: 8px 13px;
+    font-size: 0.82rem;
+  }
+
+  .mobile-toggle {
+    padding: 7px 11px;
+    font-size: 1.15rem;
+  }
+
+  /* Hero Section on Smartphone */
+  .hero {
+    padding: 24px 0 36px;
+  }
+
+  .hero-grid {
+    gap: 24px;
+  }
+
+  .hero-pill {
+    font-size: 0.76rem;
+    padding: 5px 12px;
+    line-height: 1.4;
+    white-space: normal;
+  }
+
+  .hero h1 {
+    font-size: 1.56rem;
+    line-height: 1.38;
+  }
+
+  .hero h1 .highlight {
+    font-size: 1.44rem;
+    padding: 1px 8px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.94rem;
+    margin-bottom: 18px;
+  }
+
+  .hero-features {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .hero-feature-item {
+    padding: 10px 12px;
+    font-size: 0.88rem;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    padding: 11px 12px;
+    font-size: 0.88rem;
+  }
+
+  .hero-actions .btn-accent {
+    grid-column: 1 / -1;
+  }
+
+  .hero-trust-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .trust-badge-wrap {
+    width: 62px;
+    height: 62px;
+  }
+
+  .trust-content h4 {
+    font-size: 0.96rem;
+  }
+
+  .trust-content p {
+    font-size: 0.85rem;
+  }
+
+  /* Hero Slider on Smartphone */
+  .hero-visual {
+    padding: 6px 0 0;
+  }
+
+  .hero-float-badge.top-left {
+    top: -6px;
+    right: 10px;
+    font-size: 0.76rem;
+    padding: 5px 12px;
+  }
+
+  .hero-float-badge.bottom-left {
+    position: static;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+    padding: 9px 14px;
+  }
+
+  .carousel-card {
+    padding: 8px;
+    border-radius: 20px;
+  }
+
+  .carousel-slides {
+    aspect-ratio: 4 / 3;
+    border-radius: 14px;
+  }
+
+  .slide-caption {
+    padding: 28px 14px 12px;
+  }
+
+  .slide-tag {
+    font-size: 0.66rem;
+    padding: 2px 8px;
+    margin-bottom: 4px;
+  }
+
+  .slide-caption h3 {
+    font-size: 1.02rem;
+  }
+
+  .slide-caption p {
+    font-size: 0.78rem;
+    line-height: 1.38;
+  }
+
+  .carousel-nav {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+    top: 40%;
+  }
+
+  .carousel-nav.prev {
+    left: 14px;
+  }
+
+  .carousel-nav.next {
+    right: 14px;
+  }
+
+  /* Policies & Nano Herbal Section on Smartphone */
+  .policy-grid,
+  .services-grid,
+  .knowledge-grid,
+  .warranty-grid,
+  .estate-hero-showcase,
+  .gallery-grid,
+  .warning-list-4col,
+  .gallery-stats-bar,
+  .poster-checklist,
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .policy-grid {
+    margin-bottom: 28px;
+  }
+
+  .policy-card {
+    padding: 20px;
+  }
+
+  .nano-showcase {
+    padding: 20px 16px;
+    border-radius: 20px;
+    gap: 24px;
+  }
+
+  .nano-heading {
+    font-size: 1.32rem;
+  }
+
+  .nano-heading span {
+    font-size: 1.12rem;
+  }
+
+  .herb-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .herb-item {
+    font-size: 0.82rem;
+    padding: 8px 10px;
+  }
+
+  .mech-step {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .nano-poster-image {
+    height: 185px;
+  }
+
+  .nano-poster-overlay {
+    padding: 14px;
+  }
+
+  .nano-poster-overlay h4 {
+    font-size: 1.05rem;
+  }
+
+  .nano-poster-body {
+    padding: 16px;
+  }
+
+  .poster-cta-bar {
+    flex-direction: column;
+    align-items: stretch;
     text-align: center;
   }
 
-  .nano-showcase,
-  .warning-signs-card,
-  .contact-card,
+  .poster-cta-bar .btn-sm {
+    width: 100%;
+  }
+
+  /* Services & Warning Signs on Smartphone */
+  .service-banner {
+    height: 195px;
+  }
+
+  .service-body {
+    padding: 20px 16px;
+  }
+
+  .service-body h3 {
+    font-size: 1.2rem;
+  }
+
+  .service-feature-pills {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .service-feature-pills span {
+    padding: 9px 12px;
+  }
+
+  .warning-signs-card {
+    padding: 22px 16px;
+    margin-top: 24px;
+    border-radius: 20px;
+  }
+
+  .warning-header-row h3 {
+    font-size: 1.32rem !important;
+    line-height: 1.35;
+  }
+
+  .warning-header-row .btn {
+    width: 100%;
+  }
+
+  /* Process & Video on Smartphone */
+  .step-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .step-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+
+  .step-icon-wrap svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .step-title-row h4 {
+    font-size: 1rem;
+  }
+
+  .video-poster-container {
+    min-height: 230px;
+  }
+
+  .video-cover-overlay {
+    padding: 16px;
+  }
+
+  .video-play-btn {
+    width: 62px;
+    height: 62px;
+  }
+
+  .video-cover-text h3 {
+    font-size: 1.05rem;
+  }
+
+  .video-info-bar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px 16px;
+  }
+
+  .btn-video-yt {
+    width: 100%;
+  }
+
+  .action-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .action-photo-card img {
+    height: 105px;
+  }
+
+  /* Warranty on Smartphone */
   .warranty-banner {
-    padding: 22px;
+    padding: 20px 16px;
+    border-radius: 20px;
+  }
+
+  .warranty-banner-header {
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+  }
+
+  .warranty-seal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .seal-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+  }
+
+  .warranty-seal h3 {
+    font-size: 1.25rem;
+  }
+
+  .warranty-banner-header .btn {
+    width: 100%;
+  }
+
+  /* Clients & 14 Villages Grid on Smartphone (Neat 2-Column Mobile Cards) */
+  .estate-hero-card {
+    height: 205px;
+  }
+
+  .villages-box {
+    padding: 20px 14px;
+    border-radius: 20px;
+  }
+
+  .villages-box-header {
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+
+  .villages-title-group {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .villages-main-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+  }
+
+  .villages-title-group h3 {
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+
+  .villages-grid-modern {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .village-card {
+    border-radius: 14px;
+  }
+
+  .village-card-media {
+    height: 100px;
+  }
+
+  .village-verified {
+    top: 6px;
+    right: 6px;
+    font-size: 0.62rem;
+    padding: 2px 7px;
+  }
+
+  .village-card-body {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .village-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+  }
+
+  .village-card-body h4 {
+    font-size: 0.85rem;
+  }
+
+  .village-card-body small {
+    font-size: 0.68rem;
+  }
+
+  /* Gallery & Filters on Smartphone */
+  .g-stat-item {
+    padding: 12px 14px;
+  }
+
+  .gallery-filters {
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .filter-btn {
+    padding: 8px 14px;
+    font-size: 0.84rem;
+  }
+
+  /* Knowledge & FAQ on Smartphone */
+  .knowledge-grid {
+    margin-bottom: 28px;
+  }
+
+  .article-banner {
+    height: 180px;
+  }
+
+  .article-content {
+    padding: 18px 16px;
+  }
+
+  .faq-side-body {
+    padding: 18px 16px;
+  }
+
+  .faq-question {
+    padding: 14px 16px;
+    font-size: 0.94rem;
+  }
+
+  .faq-answer {
+    padding: 12px 16px 16px;
+    font-size: 0.9rem;
+  }
+
+  /* Contact & Booking Form on Smartphone */
+  .contact-card {
+    padding: 20px 16px;
+    border-radius: 20px;
+  }
+
+  .branch-box {
+    flex-direction: column;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .branch-phone-btn {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .channel-link {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .channel-svg-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .channel-text strong {
+    font-size: 0.9rem;
+  }
+
+  .channel-text span {
+    font-size: 0.8rem;
+    word-break: break-word;
+  }
+
+  .booking-banner {
+    height: 185px;
+  }
+
+  .booking-banner-overlay {
+    padding: 16px;
+  }
+
+  .booking-banner-overlay h3 {
+    font-size: 1.18rem;
+  }
+
+  .booking-body {
+    padding: 18px 16px;
+  }
+
+  .form-row-2 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Prevent iOS Safari auto-zoom on input focus */
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px;
+    padding: 11px 13px;
+  }
+
+  /* Footer & App-Style Bottom Sticky Bar on Smartphone */
+  .footer {
+    padding: 44px 0 92px;
+  }
+
+  .footer-logo-box img {
+    height: 38px;
+  }
+
+  .floating-cta {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: row;
+    gap: 6px;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    background: rgba(15, 23, 42, 0.94);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 -8px 24px rgba(15, 23, 42, 0.25);
+  }
+
+  .float-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 10px 6px;
+    border-radius: 10px;
+    font-size: 0.76rem;
+    gap: 5px;
+    box-shadow: none;
+    text-align: center;
+  }
+
+  .float-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .villages-grid-modern {
+    gap: 8px;
+  }
+
+  .village-card-body h4 {
+    font-size: 0.8rem;
+  }
+
+  .float-btn {
+    font-size: 0.71rem;
+    padding: 9px 4px;
   }
 }
