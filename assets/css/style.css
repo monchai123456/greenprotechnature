@@ -1023,6 +1023,10 @@ a {
   gap: 28px;
 }
 
+.services-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .service-card {
   background: var(--white);
   border-radius: 22px;
@@ -1267,9 +1271,22 @@ a {
 
 .warning-img-wrap {
   position: relative;
-  height: 140px;
+  height: 165px;
   overflow: hidden;
   background: #0f172a;
+}
+
+.warning-img-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.35) 100%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.warning-item:hover .warning-img-wrap::after {
+  opacity: 0.15;
 }
 
 .warning-img-wrap img {
@@ -1288,18 +1305,20 @@ a {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: rgba(20, 83, 45, 0.92);
+  z-index: 2;
+  background: rgba(20, 83, 45, 0.94);
   color: #fde047;
-  border: 1px solid rgba(253, 224, 71, 0.4);
-  font-size: 0.72rem;
+  border: 1px solid rgba(253, 224, 71, 0.45);
+  font-size: 0.74rem;
   font-weight: 700;
-  padding: 3px 9px;
+  padding: 4px 10px;
   border-radius: 999px;
   backdrop-filter: blur(4px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
 }
 
 .warning-content {
-  padding: 16px 18px;
+  padding: 16px 18px 18px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -1307,15 +1326,17 @@ a {
 
 .warning-content h4 {
   color: #fde047;
-  margin-bottom: 6px;
-  font-size: 1.02rem;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
   line-height: 1.35;
 }
 
 .warning-content p {
   font-size: 0.88rem;
-  color: #f1f5f9;
-  line-height: 1.5;
+  color: #f0fdf4;
+  line-height: 1.55;
+  margin: 0;
 }
 
 /* Process & Video Section */
@@ -3183,6 +3204,7 @@ a {
   }
 
   .policy-grid,
+  .services-grid-3,
   .knowledge-grid,
   .warranty-grid,
   .estate-hero-showcase,
@@ -3463,6 +3485,7 @@ a {
   /* Policies & Nano Herbal Section on Smartphone */
   .policy-grid,
   .services-grid,
+  .services-grid-3,
   .knowledge-grid,
   .warranty-grid,
   .estate-hero-showcase,
@@ -3567,7 +3590,7 @@ a {
   }
 
   .warning-img-wrap {
-    height: 125px;
+    height: 180px;
   }
 
   .warning-content {
