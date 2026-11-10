@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://monchai123456.github.io/greenprotechnature/sitemap.xml
+Sitemap: https://greenprotechbio.com/sitemap.xml
